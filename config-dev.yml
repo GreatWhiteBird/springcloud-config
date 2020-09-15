@@ -1,0 +1,38 @@
+server:
+  port: 3344
+
+
+
+
+spring:
+  application:
+    name: config-center-8001
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/GreatWhiteBird/springcloud-config.git
+#         搜索的目录
+          search-paths:
+            - springcloud-config
+#            读取分支
+      label: master
+
+
+
+
+
+
+eureka:
+  client:
+#  表示是否注册进注册中心
+    register-with-eureka:  true
+#    是否从 eurekaserver端抓取注册信息，默认是ture，配合ribbon使用必须是true
+    fetch-registry:  true
+    service-url:
+#          defaultZone: http://localhost:7001/eureka
+          defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/
+  instance:
+     instance-id: config-center-8001
+     prefer-ip-address: true
+
