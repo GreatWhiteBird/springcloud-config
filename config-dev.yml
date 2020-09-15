@@ -1,7 +1,8 @@
 server:
   port: 3344
 
-
+config: 
+      info:555555555555
 
 
 spring:
